@@ -13,6 +13,13 @@ https://github.com/dbt-labs/jaffle_shop
 ./batect setup
 ```
 
+Make sure you have two environment variables exported:
+- KENSU_INGESTION_TOKEN
+- KENSU_API_TOKEN
+
+# Enter env
+
+
 
 # Enter env
 ```bash
@@ -28,12 +35,6 @@ this should work out just fine, all inside docker compose.
 ```
 
  
-REPLACE `TODO` below with access tokens in [conf.ini](./conf.ini) and copy it to directory where `dbt` will be called from:
-
-```bash
-cp conf.ini ./jaffle_shop/
-```
-
 # RUN
 
 ```bash
