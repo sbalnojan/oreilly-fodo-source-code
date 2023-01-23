@@ -15,3 +15,6 @@ PY_USER_SITE="dbt_env/lib/python3.8/site-packages/"
 cp sitecustomize.py kensu_reporting.py kensu_postgres.py $PY_USER_SITE
 
 git clone https://github.com/dbt-labs/jaffle_shop.git
+
+mkdir ~/.dbt
+cp profiles.yml ~/.dbt/profiles.yml
