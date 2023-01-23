@@ -1,0 +1,18 @@
+containers:
+  build-env:
+    image: python:3.8
+    working_directory: /home/container-user
+    volumes:
+      - local: .
+        container: /home/container-user/
+        options: cached
+    ports:
+      - 8888:8888
+      - 8889:8889
+tasks:
+  dev:
+    description: Open up shell in dev environment
+    group: Dev
+    run:
+      container: build-env
+      entrypoint: /bin/bash

@@ -1,0 +1,19 @@
+{
+    "name": "Codespaces for Kensu & Dbt",
+    "extensions": [
+        "redhat.vscode-yaml",
+    ],
+    "dockerFile": "Dockerfile",
+    "settings": {
+
+        }
+    },
+    "features": {
+        "docker-in-docker": {
+            "version": "latest",
+            "moby": true,
+            "dockerDashComposeVersion": "v1"
+        },
+            "java": "latest"
+    }
+}
