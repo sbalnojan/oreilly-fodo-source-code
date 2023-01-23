@@ -18,3 +18,9 @@ git clone https://github.com/dbt-labs/jaffle_shop.git
 
 mkdir ~/.dbt
 cp profiles.yml ~/.dbt/profiles.yml
+
+# injecting the secrets
+echo "kensu_ingestion_token=${KENSU_INGESTION_TOKEN}" >> conf.ini
+echo "kensu_api_token=${KENSU_API_TOKEN}" >> conf.ini
+cp conf.ini ./jaffle_shop/conf.ini
+

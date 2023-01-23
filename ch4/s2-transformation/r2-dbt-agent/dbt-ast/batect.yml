@@ -6,6 +6,9 @@ containers:
       - local: .
         container: /home/container-user/
         options: cached
+    environment:
+      KENSU_API_TOKEN: ${KENSU_API_TOKEN}
+      KENSU_INGESTION_TOKEN: ${KENSU_INGESTION_TOKEN}
   postgres:
     image: postgres:13.4-bullseye
     environment:
