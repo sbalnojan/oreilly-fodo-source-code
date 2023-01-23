@@ -16,8 +16,8 @@ cp sitecustomize.py kensu_reporting.py kensu_postgres.py $PY_USER_SITE
 
 git clone https://github.com/dbt-labs/jaffle_shop.git
 
-mkdir ~/.dbt
-cp profiles.yml ~/.dbt/profiles.yml
+#mkdir ~/.dbt
+#cp profiles.yml ~/.dbt/profiles.yml
 
 # injecting the secrets
 cp conf.ini ./jaffle_shop/conf.ini

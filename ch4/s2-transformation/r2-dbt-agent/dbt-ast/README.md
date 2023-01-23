@@ -17,33 +17,25 @@ Make sure you have two environment variables exported:
 - KENSU_INGESTION_TOKEN
 - KENSU_API_TOKEN
 
-# Enter env
+# Test
 
+```bash
+./batect test
+```
 
-
-# Enter env
+# Enter dev env & run
 ```bash
 ./batect dev
 (inside the new container: )$ source dbt_env/bin/activate
-
-... $ cd jaffle_shop; dbt debug
-```
-this should work out just fine, all inside docker compose.
-
-```
-
-```
-
- 
-# RUN
-
-```bash
-# git clone https://github.com/dbt-labs/jaffle_shop.git
-cd jaffle_shop
+cd jaffle_shop; 
 export KSU_CONF_FILE="conf.ini"
 dbt seed
 dbt run
+
 ```
+
+
+
 
 # Developer tool
 Dumping AST code from python code into injection code :D

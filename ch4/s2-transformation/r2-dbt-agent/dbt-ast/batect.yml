@@ -6,6 +6,9 @@ containers:
       - local: .
         container: /home/container-user/
         options: cached
+      - local: .dbt
+        container: /root/.dbt
+        options: cached
     environment:
       KENSU_API_TOKEN: ${KENSU_API_TOKEN}
       KENSU_INGESTION_TOKEN: ${KENSU_INGESTION_TOKEN}
@@ -21,11 +24,20 @@ containers:
 
 tasks:
   setup:
-    description: Open up shell in dev environment
+    description: Install requirements and move things around...
     group: Dev
     run:
       container: build-env
       entrypoint: /bin/bash -c "./source_dbt_etc"
+
+  test:
+    description: Test dbt postgres setup
+    group: Dev
+    run:
+      container: build-env
+      entrypoint: /bin/bash -c "sleep 5; source dbt_env/bin/activate; cd jaffle_shop; dbt debug;"
+    dependencies:
+      - postgres
 
   dev:
     description: Open up shell in dev environment
