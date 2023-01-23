@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+PY=python3.8
+$PY -m venv dbt_env
+source dbt_env/bin/activate
+# quite important to use pip freeze requirements to prevent package version conflicts (or solve them yourself, e.g. force MarkupSafe)
+$PY -m pip install --upgrade pip setuptools wheel
+$PY -m pip install -r requirements.txt --force
+
+#PY_USER_SITE=`python3 -m site --user-site`
+# FIXME/WARNING: this seem to return python main installation, and not a virtualenv
+# (venv) ➜  dbt-ast git:(main) ✗ ./dbt-ast/venv/bin/python -m site --user-site                                        
+# /home/someuser/.local/lib/python3.10/site-packages
+PY_USER_SITE="dbt_env/lib/python3.8/site-packages/"
+cp sitecustomize.py kensu_reporting.py kensu_postgres.py $PY_USER_SITE
+
+git clone git@github.com:dbt-labs/jaffle_shop.git
